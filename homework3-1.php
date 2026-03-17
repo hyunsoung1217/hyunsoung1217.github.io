@@ -2,10 +2,14 @@
 $n = 30;
 $sum = 0;
 $prod = 1;
-for($i=1; $i<=$n;$i++){
-    $sum+=$i;
+
+echo "1부터 $n 까지의 숫자: ";
+for ($i = 1; $i <= $n; $i++) {
+    echo $i . ($i == $n ? "" : ", ");
+    $sum += $i;
     $prod *= $i;
-    echo $i . " ";
 }
-echo " 합: " . $sum . "\n<br>";
-echo " 곱: " . $prod;
+
+echo "<br>1 + ... + $n = $sum";
+echo "<br>1 * ... * $n = " . number_format($prod, 0, '', ''); 
+?>
