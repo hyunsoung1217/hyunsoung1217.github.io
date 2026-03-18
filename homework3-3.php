@@ -1,5 +1,5 @@
 <?php
-$n = 6;
+$n = <rand>(1,100);
 $f = [0, 1, 1];
 
 echo "<pre>i   f_i   f_{i+1}/f_i</pre>";
