@@ -1,4 +1,3 @@
-
 <?php
 $link = mysqli_connect("localhost", 'root', '','classscore');
 $_GET['order'] = isset($order) ? $_GET['order'] : null;
