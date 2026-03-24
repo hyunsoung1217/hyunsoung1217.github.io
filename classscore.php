@@ -67,7 +67,7 @@ $_GET['order'] = isset($order) ? $_GET['order'] : null;
                         <td>90000<input type="number" ></td>
                         <td>입장+놀이자유</td>
                     </tr>
-                <input type="submit">
+                <input type="submit" value="합계">
 
                 </tbody>
             </table>
