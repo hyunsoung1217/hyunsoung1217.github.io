@@ -1,133 +1,119 @@
+<?php
+$link = mysqli_connect("localhost", "root", "", "amusementpark");
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Stanford Performing Arts</title>
+    <title>homework 4</title>
     <style>
-
-        body {
-            font-family: "Times New Roman", Times, serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            padding: 50px;
-        }
-
-    
-        .container {
-            background-color: white;
-            width: 800px;
-            padding: 40px;
-            border: 1px solid #ccc;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        }
-
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 2px solid #8c1515;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-
-        header h1 {
-            color: #8c1515;
-            margin: 0;
-            font-size: 48px;
-            font-weight: normal;
-        }
-
-        .edition {
-            color: #8c1515;
-            text-align: right;
-            font-weight: bold;
-            line-height: 1.2;
-        }
-
-        .main-wrapper {
-            display: grid;
-            grid-template-columns: 1.8fr 1fr;
-            gap: 30px;
-        }
-
-        .content-left h2 {
-            margin-top: 0;
-            font-size: 24px;
-        }
-        .hall-image {
-            float: left;
-            width: 280px;
-            height: auto;
-            margin-right: 15px;
-            margin-bottom: 10px;
-            border: 1px solid #999;
-        }
-
-        .hall-info p {
-            margin: 0 0 15px 0;
-            line-height: 1.5;
-            text-align: justify;
-        }
-        .sidebar h2 {
-            margin-top: 0;
-            font-size: 24px;
-            border-bottom: 1px solid #000;
-            padding-bottom: 5px;
-        }
-
-        .calendar-list {
-            margin-top: 10px;
-        }
-
-        .calendar-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #ccc;
-            font-style: italic;
-            font-size: 15px;
-        }
+        body { font-family: "맑은 고딕", sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 750px; margin-bottom: 20px; }
+        th, td { border: 1px solid #999; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Stanford Performing Arts</h1>
-        <div class="edition">Autumn 2012<br>Edition</div>
-    </header>
+<form action="homework4.php" method="GET"> 고객성명 <input type="text" name="customer_name" required>
+    <input type="submit" name="calc" value="합계" style="float: right;">
 
-    <div class="main-wrapper">
-        <section class="content-left">
-            <h2>Bing Concert Hall</h2>
-            
-            <div class="hall-info">
-                <img src="concert.jpg"class="hall-image">
-                
-                <p>
-                    The Bing Concert Hall at Stanford will play a vital role on campus and in the local community. 
-                    The hall's exceptional acoustics and state-of-the-art technical capabilities will showcase 
-                    the world's finest performers.
-                </p>
-                <p>
-                    The hall is scheduled to open early in 2013. The concert hall will have 844 seats in an 
-                    intimate vineyard-style configuration, with terraced sections wrapping all the way 
-                    around the stage.
-                </p>
-            </div>
-        </section>
+    <table>
+        <tr>
+            <th>No</th><th>구분</th><th>어린이</th><th>어른</th><th>비고</th>
+        </tr>
+        
+        <tr>
+            <td>1</td>
+            <td>입장권</td>
+            <td>7,000 
+                <select name="sel11"> <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>10,000 
+                <select name="sel12"> <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>입장</td>
+        </tr>
 
-        <aside class="sidebar">
-            <h2>Calendar</h2>
-            <div class="calendar-list">
-                <div class="calendar-item">Harmony for Humanity: Daniel Pearl World Music Concert</div>
-                <div class="calendar-item">Sundays with the St. Lawrence String Quartet</div>
-                <div class="calendar-item">Merce Cunningham Dance Company</div>
-                <div class="calendar-item">Juilliard String Quartet</div>
-            </div>
-        </aside>
-    </div>
-</div>
+        <tr>
+            <td>2</td>
+            <td>BIG3</td>
+            <td>12,000 
+                <select name="sel21">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>16,000 
+                <select name="sel22">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>입장+놀이3종</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>자유이용권</td>
+            <td>21,000 
+                <select name="sel31">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>26,000 
+                <select name="sel32">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>입장+놀이자유</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>연간이용권</td>
+            <td>70,000 
+                <select name="sel41">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>90,000 
+                <select name="sel42">
+                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+                </select>
+            </td>
+            <td>입장+연간이용</td>
+        </tr>
+    </table>
+</form>
+
+<?php
+if (isset($_GET['calc'])) {
+    $name = $_GET['customer_name'];
+    $date_now = date("Y년 n월 j일 a g:i분"); //
+    $total = ($_GET['sel11'] * 7000) + ($_GET['sel12'] * 10000) + ($_GET['sel21'] * 12000) + ($_GET['sel22']* 16000) + 
+             ($_GET['sel31'] * 21000) + ($_GET['sel32'] * 26000) + ($_GET['sel41'] * 70000) + ($_GET['sel42'] * 90000);
+    // 화면 출력
+    echo "<div>";
+    echo "$date_now<br>";
+    echo "<strong>$name</strong> 고객님 감사합니다.<br>";
+    if($_GET['sel11'] > 0) echo "어린이 입장권 {$_GET['sel11']}매<br>"; if($_GET['sel12'] > 0) echo "어른 입장권 {$_GET['sel12']}매<br>";
+    if($_GET['sel21'] > 0) echo "어린이 BIG3 {$_GET['sel21']}매<br>"; if($_GET['sel22'] > 0) echo "어른 BIG3 {$_GET['sel22']}매<br>";
+    if($_GET['sel31'] > 0) echo "어린이 자유이용권 {$_GET['sel31']}매<br>"; if($_GET['sel32'] > 0) echo "어른 자유이용권 {$_GET['sel32']}매<br>";
+    if($_GET['sel41'] > 0) echo "어린이 연간이용권 {$_GET['sel41']}매<br>"; if($_GET['sel42'] > 0) echo "어른 연간이용권 {$_GET['sel42']}매<br>";
+    echo "합계 <strong>" . number_format($total) . "원</strong>입니다.";
+    echo "</div>";
+
+    // SQL 저장 (이미지의 컬럼명 기준: Date, Name, EnterChild, 등)
+    $sql = "INSERT INTO scores (Date, Name, EnterChild, EnterAdult, Big3Child, Big3Adult, FreeChild, FreeAdult, YearChild, YearAdult) 
+            VALUES ('$date_now', '$name', '$_GET['sel11']', '$_GET['sel12']', '$_GET['sel21']', '$_GET['sel22']', '$_GET['sel31']', '$_GET['sel32']', '$_GET['sel41']', '$_GET['sel42']')";
+    
+    mysqli_query($link, $sql);
+}
+
+mysqli_close($link);
+?>
 
 </body>
 </html>
